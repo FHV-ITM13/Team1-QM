@@ -101,6 +101,181 @@ Aufgaben die ein System erledigen solle werden nicht durchgeführt (z.B. Bank).
 Extrem hohe Kosten bzw. signifikante Gewinnausfälle können die Folge eines Systemausfalls sein.
 
 
+\todo{do fehlt a stuck}
+
+\section{Sammlung von Anforderungen}
+
+\subsection{Interviews}
+\paragraph{Technik}
+\begin{itemize}
+\item Interviews mit Fragebogen
+\item Geschlossene Interviews vorgegebener Fragebogen abarbeiten
+\item Offene Interviews mit einer Diskussion zwischen Analyseteam und Beteiligten
+\end{itemize}
+
+\paragraph{Durchführungsempfehlung}
+\begin{itemize}
+\item Mischung aller Methoden 
+\item Vorbereitung aller Diskussionen als geschlossenes Interview 
+\item gut und interessiert zuhören
+\item gezielt Fragen
+\end{itemize}
+
+\paragraph{Probleme}
+\begin{itemize}
+\item Jargon des Anwendungsgebiets 
+\item Implizites Wissen
+\end{itemize}
+
+\paragraph{Eignung}
+\begin{itemize}
+\item Verständnis der Benutzeranforderungen 
+\item Ergänzung zu anderen Informationsquellen mit zum Beispiel Dokumentationen oder Beobachtungen
+\end{itemize}
+
+\paragraph{Szenarien}
+\begin{itemize}
+\item {
+Grundbestandteile
+\begin{itemize}
+\item Ausgangssituation
+\item Ereignisablauf
+\item Ausnahmen und ihre Behandlung
+\end{itemize}
+}
+\item {
+Varianten
+\begin{itemize}
+\item Ad-hoc
+\item Formell
+\end{itemize}
+}
+\end{itemize}
+
+\subsection{Ethnografische Methode (Völkerkunde)}
+Grundidee: Beobachten ohne einzugreifen
+
+\begin{itemize}
+\item Beobachten der alltäglichen Arbeit im normalen Umfeld
+\item Notieren von Auffälligen
+\item Diskussion mit Experten
+\item Ableitung der Anforderungen
+\end{itemize}
+
+\paragraph{Stärken}
+\begin{itemize}
+\item Erkennen von impliziten Anforderungen 
+\item Erkennen von nicht explizierten Anforderungen
+\item Erkennen von Abweichungen
+\end{itemize}
+
+\img{0.9}{document/graphics/ethnogfrafisch.png}{Verknüpfung von Ethografie und Prototypen nach Sommerville (Copyright Pearson Studium 2007)}{ethnogfrafisch}
+
+\newpage
+\section{Klassifizierung von Anforderungen}
+
+\img{0.8}{document/graphics/metamodel.png}{Metamodell}{metamodel}
+
+\paragraph{Aufgaben}
+
+\begin{itemize}
+\item Erkennen von Duplikaten / Synonymen 
+\item Beziehungen zwischen Anforderungen 
+\item Gruppierung der Anforderungen 
+\end{itemize}
+
+\section{Validierung von Anforderungen}
+Wichtige Prüfungen sind:
+
+\begin{itemize}
+\item Gültigkeitsprüfung
+\item Konsistenzprüfung
+\item Vollständigkeitsprüfung (schwierig, aber mit etwas Bauchgefühl machbar)
+\item Realisierbarkeitsprüfung
+\item Verifizierbarkeitsprüfung
+\end{itemize}
+
+\subsection{Techniken}
+Prototypen erstellen und Testfälle entwickeln. Falls das nicht möglich sind die Anforderugnen schlecht definiert.
+
+\subsection{Review}
+\paragraph{Teamzusammensetzung}
+Es sollten Vertreter aller am Projekt beteiligten bzw. vom Projekt betroffenen Gruppen auf Anwenderseite, ausserdem Systemarchitekten und Vertreter der Softwareentwickler.
+
+\paragraph{Durchführung}
+Die Führung der Analyse liegt bei den jeweiligen Anwendervertretern. Diskutiert werden sollten alle Anforderungen. Dadurch können Fehler, Konflikte und Wiedersprüche aufgedekt werden. Das Ergebnis ist ein Review Bericht.
+
+\paragraph{Prüfungen}
+Die Konsistenz der Anforderungen sollten am Ende geprüft werden. Ausserdem sollte eine Vollständigkeitsprüfung durchgeführt werden.
+
+\subsection{Priorisierung von Anforderungen}
+
+\paragraph{Grundgedanke}
+Phasenweise Implementierung der Software. 
+
+\subsubsection{Prioritätsfestlegung}
+Teams festlegen, die nicht miteinander kommunizieren sollten. Ausserdem wird eine Bewertungsformel festgelegt.
+
+\paragraph{Nutzwertanalyseteam}
+Bewertet den Nutzen für die Anwender.
+
+\paragraph{Kostenanalyseteam}
+Schätzt die Kosten jeder Anforderung
+
+
+\subsubsection{Auswertung}
+
+\paragraph{Einflussgrößen}
+\begin{itemize}
+\item Nutzwert jeder Anforderung
+\item Kosten jeder Anforderung
+\item Obergrenze des Aufwands für Stufe 1
+\item Abhängigkeiten
+\end{itemize}
+
+\paragraph{Ergebnis}
+Liste der Anforderungen für nächste (bzw. erste) Ausbaustufe
+
+\newpage
+\section{Systemmodelle}
+
+\paragraph{Kontextmodelle}
+Definiert die Systemgrenzen des Gesamtsystems und des technischen Systems. Das Gesamtsystem umfasst das Technische System und die Menschliche Komponente und definiert den Kontext. Das Technische System definiert den Scope.
+
+\img{1}{document/graphics/kontextmodelle.png}{Kontextmodelle}{kontextmodelle}
+
+\newpage
+\paragraph{Verhaltensmodelle}
+Definiert die Abläufe in einem System. Sie können Datenfluss (Datenfocus) - oder Ereignis (Ereignisfocus) - Orientiert geschehen. Aussderm gibt es Mischformen davon. Dafür können Datenflussdiagramme (Abbildung \imgref{verhaltensmodelle}), Zustandstabelld (Abbildung \imgref{zustandstabelle}) und ähnliches verwendet werden.
+ 
+\img{1}{document/graphics/verhaltensmodelle.png}{Datenflussdiagramm}{verhaltensmodelle}
+
+\img{1}{document/graphics/zustandstabelle.png}{Zustandtabelle}{zustandstabelle}
+
+\paragraph{Datenmodelle}
+Definiert die logische und persistente (lokal, übergreifend mttels Datenbank und Datenaustausch) Datenstruktur. Dazu kann ER-, UML-Diagramme, OWL oder andere Ontologie-Darstellungen und andere.
+ 
+\newpage
+\paragraph{Objektorientierte Modellierung}
+Vereinigt die Funktionalität von Daten- und Verhaltensmodelle und können Daten, Datenflüsse, Datenstrukturen und Erreignise erfassen. Als Notation wird meist UML verwendet.
+
+\img{1}{document/graphics/objektorientiert.png}{Objektorientierte Modellierung}{objektorientiert}
+
+Sind die Klassen in dem Diagramm Abbildung \imgref{objektorientiert} wirklich \textbf{Klassen oder Rollen}? Nein das sind eindeutig Rollen.
+
+\newpage
+\paragraph{Strukturierte Methoden}
+Detailliert definierte Vorgehensweise bei der SW-Entwicklung. Normalerweise basierend auf einem Satz von Diagrammtypen. Definiert zusätzliche Regeln und Richtlinien. Beispiele dafür sind JSP, V-Modell oder RUP. Nachteile davon sind Mangelnde Unterstützung nicht-funktionaler Anforderungen und Anwendbarkeit für konkretes Problem oft schwer zu entscheiden.
+
+\img{1}{document/graphics/strukturiert.png}{Strukturierte Methoden}{strukturiert}
+
+
+
+
+
+
+
+
 
 
 
