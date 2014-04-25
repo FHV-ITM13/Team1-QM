@@ -308,6 +308,133 @@ Sie sind relativ stabil und sind mit dem Kern der Anwendung verwoben. Oft aus St
 \paragraph{Veränderliche Anforderungen}
 Anforderungen mit hoher Änderungswahrscheinlichkeit. Können wirtschaftliche Randbedingungen, technische Randbedingungen und gesetzliche Randbedingungen.
 
+\section{Pflichtenheft}
+Zusammenstellung der vollständigen und detailierten Benutzeranforderungen und Systemanforderungen (großes Problem ist die Vollständigkeit). Darf nach Fertigstellung nicht mehr geändert werder und muss so implementiert werden wie es festgehalten wurde (auch wenn es sich um kompletten Blödsinn handelt). Dies muss aus juristischen Gründen so sein da eine nachträgliche Änderung als eine Benachteiligung der Mitbewerber interpretiert werden kann.
+
+\paragraph{Synonyme} sind die Begriffe Produktdefinition, Produktspezifikiation, Systemdefinition und Systemspezifikation.
+
+\paragraph{Adressaten des Pflichtenhefts} sind unter anderem Systemkunde, Manager, Systementwickler, Systemtester, Systemwarter und Juristen. 
+
+\paragraph{Informationen im Pflichtenheft} sind qualitative und quantitative Anforderungen (mandatory requirement)sowie zusätzliche Wünsche (optional requirements) dessen Erfüllung als sehr positiv betrachtet werden und informative Bestandteile. Diese Bestandteile dienen dem Verständniss und sind streng genommen unverbindliche Informationen.
+
+In vielen Ländern gelten Abbildungen, Tabelle und Anhänge als informative Bestandteile, wenn sie nicht anderst gekennzeichnet sind (engl. "normativ").
+
+\paragraph{Aufbau des Pflichtenhefts}
+\begin{itemize}
+
+\item { Einleitung
+\begin{itemize}
+\item Ziele des Pflichtenhefts
+\item Anwendungsbereich des Produkts
+\item Definitionen, Akronyme und Abkürzungen
+\item Referenzen
+\item Überlick über das Pflichtenheft
+\end{itemize}
+}
+
+\item { Allgemeine Beschreibung
+\begin{itemize}
+\item Produktperspektive
+\item Produktfunktion
+\item Produktcharakteristika aus Benutzersicht
+\item Beschränkungen
+\item Voraussetzungen und Abhängigkeiten
+\end{itemize}
+}
+
+\item Spezifische Anforderungen (funktionale u. nicht funktionale Anforderungen)
+
+\item Anhänge
+\item Index
+
+\end{itemize}
+
+\section{Anforderungen an kritische Systeme}
+
+\paragraph{Funktionale Anforderungen} unterstützen Definition von Funktionen zur Fehlerprüfung, zur Wiederherstellung im Fehlerfall und Aspekte zum Schutz gegen Systemausfälle.
+
+\paragraph{Als nichtfunktionale Anforderungen} werden u.a. die Systemzuverlässigkeit und Systemverfügbarkeit festgelegt. 
+
+\paragraph{Negativanforderungen} Beschreibung von Verhalten oder Eigenschaften, die das System auf keinen Fall zeigen darf.
+
+\section{Risikomanagement}
+Risikomanagement besteht aus Gefahrenbestimmung, Risikoanalyse und Gefahrenklassifizierung, Gefahrenvereinzelung und Festlegung zur Risikominimierung.
+
+\paragraph{Murphys Law} Alles was schief gehen kann, wird irgendwann einmal schief gehen.
+
+\paragraph{Risikoerkennung} Ziel ist es zu Erkennen von Rsikiken und Gefahren. Probleme die dabei entstehenkönnen sind die Wechselwirkung zwischen Systemkomponenten bzw. die Wechselwirkungen mit der Umwelt. 
+
+\paragraph{Risikoanalyse und Risikoklassifizierung} Analyse von  Unfallwahrscheinlichkeit, Schadenswahrscheinlichkeit und Schadeshöhe. Risiken sind klassifizierbar in:
+
+\begin{itemize}
+\item { nicht tolerierbar
+\begin{itemize}
+\item großer Schaden und / oder hohe Schadenswahrscheinlichkeit
+\item Maßnahmen: unter allen Umständen Risiko ausschließen
+\end{itemize}
+ }
+\item {as low as reasonably possible (ALARP)
+\begin{itemize}
+\item höchstens mittleres Schadenspotential und mittlere Schadenswahrscheinlichkeit
+\item Maßnahmen: zumindestens Auschluss des Schadens unter Beachtung von wirtschaftlichen, vertraglichen oder technischen Randbedingungen
+\end{itemize}
+ }
+
+\item { vernachlässigbar
+\begin{itemize}
+\item geringes Schadenspotential und / oder geringe Schadenswahrscheinlichkeit
+\item Maßnahmen: Reduzierung der Schadenswahrscheinlichkeit ohne negativen Einfluss auf wirtschaftliche, technisches, oder vertragliche Randbedingungen oder andere Systemanforderungen
+\end{itemize}
+}
+
+\end{itemize}
+
+
+\paragraph{Risikozerlegung} Ziel es die Ursachen aufzudecken. Dazu können Reviews, Checklisten, Petri-Netze, formale Login und Fehlerbäume verwendet werden.
+
+\img{0.9}{document/graphics/fehlerbaum.png}{Fehlerbaum}{FB}
+
+\paragraph{Risiko-Minimierung} Ziel ist das Vermeiden des Auftretens von Gefahren. In der Praxis bedeutet dies eine Kombination aller Strategien.
+
+\section{Betriebssicherheit}
+
+\img{0.9}{document/graphics/betriebssicherheit.png}{Betriebssicherheit nach IEC 61508}{BS}
+
+\paragraph{Klassifizierung}
+
+\begin{itemize}
+\item Klasse 1 - Fehler die andere Anwedungen betreffen können
+\item Klasse 2 - Fehler die andere Benutzer der selben Anwedung betreffen können
+\item Klasse 3 - Wesentliche Funktion steht ohne Work-Around nicht zur Verfügung
+\item Klasse 4 - Wesentliche Funktion steht nur über Work-Around zur Verfügung bzw. Sekundärfunktion steht nicht zur Verfügung
+\item Klasse 5 - Verbesserungswunsch
+\end{itemize}
+
+\section{Systemsicherheit} Hierbei geht es um direkte und indirekte Berodhungen.
+
+\paragraph{Direkte Bedrohung} wie z.B. unbefugtes Eindringen und DOS.
+
+\paragraph{Indirekte Bedrohung} wie Aufwand um Sicherheitsmaßnahmen zu installieren, konfigurieren und aktuell zu halten. Auch inkludiert sind Fehler und Nachlässigkeiten der Systemverwalter und monopolartige Stellungen einiger Hard- und Softwareanbieter da eine weite Verbreitung von Sicherheitslücken sehr wahrscheinlich ist.
+
+\img{0.9}{document/graphics/sicherheit.png}{Sicherheit}{Sec}
+
+\section{Zuverlässigkeit} besteht aus Hardware-, Software- und Bedienerzuverlässigkeit. 
+
+\img{0.9}{document/graphics/zuverlaessigkeit.png}{Zuverlässigkeit}{Zuv}
+
+\img{0.9}{document/graphics/zuverlaessigkeit2.png}{Zuverlässigkeit nach Sommervill}{Zuv}
+
+\paragraph{Extreme Zuverlässigkeitsanforderungen} lassen sich nicht testen!
+
+\section{Formale Spezifikationsmethoden}
+An dieses Thema sind seit 1970 sehr hohe Erwarungen gerichtet aber der große Durchbruch blieb bisher aus. Gründe dafür sind die Entwicklung anderer Software-Engineering-Methoden, Marktveränderungen, beschränkte Einsetzbarkeit und mangelhafte Skalierbarkeit. 
+
+Erfolgreich verwendet wirds bei Raumfahrt-, und medizinischen Systemen sowie bei Überwachung des Luftverkehrs. 
+
+\img{0.9}{document/graphics/formale-spezifikationsmethoden.png}{Formale Spezifikationsmethoden im Softwareprozess}{FSIS}
+
+
+\chapter{Entwurf}
 
 
 
