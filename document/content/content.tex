@@ -436,17 +436,114 @@ Erfolgreich verwendet wirds bei Raumfahrt-, und medizinischen Systemen sowie bei
 \paragraph{Fazit}
 Formale Spezifikationstechniken sind gute Ergänzungen, eindeutig und präzise aber schwer verständlich für den Laien. Erzwingen die frühzeitige Analyse der Systemanforderungen wenn die Fehlerbehebung noch billig ist.
 
+\section{Beispiel: Anforderungen an Quadratische Gleichungen lösen}
+
+\begin{itemize}
+\item Ergebnis x element aus Reelen Zahlen : $ax^2+bx+c=0$
+\item Kein Absturz bei komplexer Lösung
+\item {
+Vernünftige Reaktion auf Eingabefehler
+\begin{itemize}
+\item unvollständig
+\item $4ac > b^2$
+\end{itemize}
+}
+\item Maximaler Rundungsfehler: Relativ 0,1\% + Beweis
+\item Immer Definiertes Ergebnis (Ausnahmebehandlung)
+\item Keine Endlosschleife
+\item {
+Zeitbedarf max 1mSec
+\begin{itemize}
+\item Verwendeter CPU / Prozessor / Rechner
+\item Maximal 2xSQRT einer bestimmten implmentierung
+\end{itemize}
+}
+\item {
+Signatur
+\begin{itemize}
+\item Nmae
+\item parameter
+\item Ergebnis (Return)
+\end{itemize}
+}
+\end{itemize}
+
+
 \chapter{Entwurf}
 
+\todo{???}
 
+\chapter{Entwicklung}
 
+\paragraph{Strategien}
+\begin{itemize}
+\item Fehlervermeidung
+\item Fehlerentdeckung
+\item Fehlertoleranz
+\end{itemize}
 
+Laut der Kostenentwicklung nach Sommerville ist eine Software mit vielen Fehlern günstiger als eine Software mit weniger Fehlern. Jedoch steigen die Kosten nicht linear sondern exponentiell.
 
+\paragraph{Techniken}
+\begin{itemize}
+\item Verlässliche Softwareprozesse
+\item Qualitätsmanagement\item Formale Spezifikation\item Statische Verifikation (Probleme durch Reviews beheben)\item Starke Typisierung\item Sichere Programmierung\item Ausnahmebehandlung\item Geschützte Information
+\end{itemize}
 
+\subsection{Fehlervermeidung}
+\paragraph{Verläsliche Softwareprozesse}
 
+\begin{itemize}
+\item Inspektion der Anforderungen
+\item Anforderungsmanagement
+\item Überprüfung der Modelle: statisch / dynamisch
+\item Inspektion des Entwurfs / Codes
+\item Statische Analyse des Codes (Review)
+\item Planung und Management von Tests
+\item Konfigurationsmanagement
+\end{itemize}
 
+\paragraph{Sichere Programmierung}
+\begin{itemize}
+\item sichere verwendung von GOTO (mach da weiter ohne überprüfung)
+\item sichere verwendung von POINTER (such da mal nach deinen daten => goto in der Datenwelt)
+\item Rundungsfehler von Gleitkommazahlen
+\item Dynamische Speicherallokierung
+\item Parallelität
+\item Rekursion
+\item Interrupts
+\item Vererbung
+\item Aliasing
+\item Fehlende Überprüfung von Arraygrenzen
+\item Konfiguationsdateien
+\end{itemize}
 
+\paragraph{Ausnahmebehandlung}
+Wird in manchen Sprachen mangelhaft Unterstützt (Beispiel: C). Kann auch dazu verwendet werden um die Lesbarkeit der Anwendung zu erhöhen und damit können Fehler vermieden werden.
 
+\subsection{Fehlertoleranz}
 
+\paragraph{Fehlererkennung}
+Typen sind Vorbeugend (ich versuche vorher Fehler zu erkennen) und Rückblickend (ich behebe den Fehler wen einer auftritt => z.B. die Transaktion zurücksetzen).
+
+\paragraph{Wichtige Hilfsmittel}
+Validierung: Invarianten, Vorbedinungen, Nachbedinungen => dürfen nicht abschaltbar sein.
+
+\paragraph{Wiederherstellung nach Fehlern}
+Pesimistisch (nur zurücksetzen geht nicht ...) oder Optimistisch (erneut versuchen den gewünschten zustan zu erreichen).
+
+Vorbeugende Fehlererkennung hilft diesen Aufwand zu vermeiden.
+
+\subsubsection{Fehlertolerante Architekturen}
+\paragraph{Widerherstellungsblöcke}
+Verschiedene Algorithmen implementieren. Im Betrieb den ersten ausführen und testen, bei Fehler nimm nächsten Algorithmen. Probleme: Rundungsfehler
+
+\subsection{Wartungsaufwand}
+Gründe für hohen Wartungsaufwand sind Informatinosmanagement (Verlust des Entwicklungsteam und seiner Erfahrung), Vertragliche Zuständigkeit (Entwicklung von einer Firma, wartung von einer anderen), Fähigkeiten der Metarbeiter (Mangelnde Erfahrung mit dem Anwendungsgebiet und Technologien) und Alter bzw. Struktur des Programs (Dokumentation nicht mehr aktuell oder nicht verhanden, fehlendesKonfigurationsmanagement).
+
+Zusätzlichen Entwicklungsaufwand um Software besser wartbar zu machen zahlt sich im allgemeinen nicht aus. 
+
+\subsection{Weiterentwicklungsprozesse}
+Es gibt für jede Anforderung einen passenden Prozess (laufende weiterentwicklung, änderungungen, Bug-Behebungen, ...)
 
 
