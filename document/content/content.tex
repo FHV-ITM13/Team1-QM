@@ -487,7 +487,13 @@ Laut der Kostenentwicklung nach Sommerville ist eine Software mit vielen Fehlern
 \paragraph{Techniken}
 \begin{itemize}
 \item Verlässliche Softwareprozesse
-\item Qualitätsmanagement\item Formale Spezifikation\item Statische Verifikation (Probleme durch Reviews beheben)\item Starke Typisierung\item Sichere Programmierung\item Ausnahmebehandlung\item Geschützte Information
+\item Qualitätsmanagement
+\item Formale Spezifikation
+\item Statische Verifikation (Probleme durch Reviews beheben)
+\item Starke Typisierung
+\item Sichere Programmierung
+\item Ausnahmebehandlung
+\item Geschützte Information
 \end{itemize}
 
 \subsection{Fehlervermeidung}
@@ -545,5 +551,77 @@ Zusätzlichen Entwicklungsaufwand um Software besser wartbar zu machen zahlt sic
 
 \subsection{Weiterentwicklungsprozesse}
 Es gibt für jede Anforderung einen passenden Prozess (laufende weiterentwicklung, änderungungen, Bug-Behebungen, ...)
+
+\subsubsection{Software-Reengineering}
+Dabei handelt es sich um eine Neuentwicklung von Software, meistens eine Umstellung auf neuere Technologien (z.B. von COBOL auf Java).
+
+Dafür ist auch das Beherrschen der alten Technologien notwendig, da man andernfalls das alte System nicht analysieren kann. Die Beweggründe hinter der Umstellung ist ein verringertes Risiko und geringere Kosten.
+
+Normalerweiße teilt sich das Reengineering in Reverse Engineering und in eine Verbesserung der Programmstruktur. Im Anschluss daran müssen natürlich auch die Daten auf eventuell neue Formate transformiert werden.
+
+\subsubsection{Legacy Systeme}
+Legacy Systeme werden nach zwei Kriterien beurteilt: Qualität und Geschäftswert.
+
+Wenn beide Kriterien schlecht sind wird die Software nicht mehr weiterentwickelt. Bei hoher Qualität kann man das einfach weiter laufen lassen, bei hohem Geschäftswert aber niedriger Qualität wird das komplett neu geschrieben, und wenn beide Kriterien hoch einzustufen sind rentiert sich ein Software Reengineering Ansatz.
+
+\chapter{Testing}
+Betrifft die Kernel Alphas Softwaresystem, Requirements und Work. Tests sollen uns helfen Probleme zu entdecken und beheben, die Kunden überzeugen und die Softwarequalität demonstrieren. Dabei ist allerdings zu beachten, dass nur die Anwesenheit von Fehlern getestet werden kann, allerdings nicht ihre Abwesenheit.
+
+\begin{itemize}
+    \item Fehlverhalten (Failures) beschreiben ein inkorrektes Verhalten eines Systems zur Laufzeit
+    \item Fehler kommen wirklich im Quellcode vor
+    \item Irrtürmer (Errors) sind inkorrekte Wahrnehmungen von Menschen
+\end{itemize}
+
+Dabei muss es nicht zwingendermaßen sein dass nicht jeder Irrtum zu einem Fehler, und nicht jeder Fehler zu einem Fehlverhalten führt.
+
+Für die Reduzierung von Fehlern gibt es verschiedene Maßnahmen, z.B. das 4-Augen-Prinzip zur Vermeidung, Tests zum Entdecken, und standardisierte Prozesse zum Beseitigung von Fehlern.
+
+Weiters wird zwischen Blackbox- und Whitebox-Tests unterschieden, bei Blackbox Tests wird rein gegen die Spezifikation getestet, ohne den Code zu testen, wohingegen Whitebox-Tests den Code berücksichtigen.
+
+Ein weiterer Typ ist ein Regressionstest, der neben der erwarteten Funktionalität sicherstellen soll, dass das System frei von alten Fehlern ist. Das Einführen alter Fehler kann sehr schnell passieren, wenn Code mit anderen Absichten refactored wird.
+
+Ein Testfall wird in einen abstrakten und konkreten Teil eingeteilt. Der abstrakte Teil beschreibt den Test, der konkrete ist eine Ausführung des Tests. Eine Testsuite vereint mehrere Tests zu einer Ausführungseinheit.
+
+\section{Testprozesse}
+Ein Testprozess muss geplant und vorbereitet werden. Dazu gehören die Definitionen der Testziele und verwendeten Messungen, sowie die Eingabewerte und Testsuites.
+
+Die Messungen müssen dann auch noch analysiert werden, vor allem geht es da um das Auffinden von Fehlern. Diese Fehler müssen von Softwareentwicklern behoben werden, insofern bei der Planung der Messungen keine Fehler gemacht werden. Bei TDD testen sich die Software und Tests gegenseitig, da beim Auftreten eines Fehlers sowohl das System under Test als auch der Test selbst fehlerhaft sein kann.
+
+\subsection{Teststrategien}
+\subsubsection{Ausprobieren}
+Planloses Ausprobieren ist die häufigste Form des Testens, allerdings ist diese Form des Testens in vielen Fällen unzureichen. Es liefert keine reproduzierbare Ergebnisse, und erlaubt auch keine Aussage über die Qualität.
+
+Das ist vor allem unzureichend wenn man eine Gewährleistung auf die Software geben will. Die rechtlichen Rahmenbedingungen sind momentan noch im Sinne der Softwareanbieter, allerdings könnte sich das in Zukunft ändern, gerade selbstfahrende Autos könnten da Ausschläge in diese Richtung geben.
+
+\subsubsection{Vollständiges Testen}
+Das vollständige Testen ist meist theorethisch möglich, aber nur in den seltensten Fällen wirtschaftlich. Unser Ziel muss es deshalb sein eine möglichst hohe Testabdeckung zu erreichen, und dabei auch noch wirtschaftlich zu bleiben.
+
+\subsubsection{Checklisten}
+Ein mögliches Vorgehen sind Checklisten, die die wesentlichsten Funktionen des Systems definieren, und nur diese getestet werden. Natürlich kann man Checklisten auch für andere Kritieren definieren.
+
+Wenn man sichere Aussagen über die Qualität machen will, wird man sehr umfangreiche Checklisten bekommen. Andererseits ist der Vorteil das man eine verbesserte Reproduzierbarkeit erhält, allerdings wird sich niemand die Zeit nehmen vollständige Checklisten zu erstellen.
+
+\subsubsection{Partitionen}
+Eine Partition ist eine nicht überlappende Menge von Untermengen einer Menge, die bei der Beseitigung der Nachteile von Checklisten behilflich sein können. Diese Untermengen werden als Äquivalenzklasse bezeichnet, und es reicht wenn nur ein Element einer Äquivalenzklasse getestet wird. Bei sinnvoller Partitionierung kann der Testaufwand bei gleichzeitig erhöhter Qualität verringert werden.
+
+Durch die gleiche Gewichtung der Äquivalenzklassen führt allerdings zu unwirtschaftlicher Verteilung der Testaufwände. Administrationwerkzeuge werden z.B. weit weniger aufgeruft, und haben dadurch schon eine niedriger Fehlereintrittwahrscheinlichkeit. 
+
+\subsubsection{Benutzungsprofile}
+Da das Testen mit Partitionen immer noch sehr aufwändig sein kann, ist die Verwendung von Benutzungsprofilen möglich. Dabei wird die Benutzung der Partitionen mit einberechnet, und man kann damit mehr Testaufwand für mehr benutzte Partitionen aufwenden.
+
+Bei existierenden Produkten kann für die Erstellung der Benutzungsprofile anhand des aktuellen Produkts bzw. von Vorgängerversionen gemacht werden. Bei neuen Produkten muss man hier wohl auf ein Konkurrenzprodukt zurück greifen. Bei einem komplett neuartigen Produkt bleibt einem nur noch das Schätzen übrig, wobei man hier auf Fachleute der jeweiligen Domäne heranziehen sollte.
+
+Hilfreich ist hier die Definition von Kundenprofilen, die danach anhand der Benutzung gewichtet werden.
+
+\subsubsection{Überdeckung}
+Die Partitionen werden auf Basis der Eingabedaten gemacht. Die Eingaben in einer Partitionen müssen gleich behandelt werden. Z.B. realle/imaginäre Lösung der Eingabe für unser Lösungsprogram.
+
+Die größte Fehlerwahrscheinlichkeit besteht an der Partitionsgrenzen. Wenn ein Array z.B. 100 Elemente umfasst, so sollte auch das Einfügen am Index 100 getestet werden, da hier bereits kein Fehler auftreten sollte.
+
+Partitionen sollten Überlappungsfrei und vollständig sein, um eine möglichst hohe Testqualität zu gewährleisten. Für jede Unterdomäne müssen Eingaben ausgewählt werden, für die dann Tests durchgeführt werden. Im Idealfall werden so alle Möglichkeiten im Code abgearbeitet.
+
+Probleme die auftreten können sind unter anderem widersprüchliche Verarbeitungsregeln (überlappende Unterdomänen) oder Probleme mit Rundungsfehlerdurch Grenzdefinitionen. Auch überflüssige Grenzen werden in einen unnötig hohen Testaufwand resultieren.
+
 
 
