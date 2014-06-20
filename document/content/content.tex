@@ -623,5 +623,64 @@ Partitionen sollten Überlappungsfrei und vollständig sein, um eine möglichst 
 
 Probleme die auftreten können sind unter anderem widersprüchliche Verarbeitungsregeln (überlappende Unterdomänen) oder Probleme mit Rundungsfehlerdurch Grenzdefinitionen. Auch überflüssige Grenzen werden in einen unnötig hohen Testaufwand resultieren.
 
+\paragraph{Schwache Nx1-Strategie}
+Es werden N unabhängige Testpunkte auf den Granzen ausgewählt + einen zusäzlichen Testpunkt der nicht auf der Grenze liegt (in minimalem abstand von der Grenze). Dadurch können Abschlussprobleme, Grenzverschiebungen und fehlende Grenzen erkannt werden. Zsätzlich können überflüssige Grenzen erkannt, aber nicht notwendigerweise alle.
+
+\subsubsection{Endliche Automaten und Markov-Modelle}
+Die meisten Anwendungsprogramme lassen sich als endliche Automaten mit Ausgabe darstellen. Allerdings ist die Anzahl meist zu hoch zum testen. Es sind vereinfachungen notwendig.
+
+Diese Teststrategie eignet sich für Web-Applikationen. Man beschränkt sich auf relevante Seiten und lösst dadurch Eintritts und Austrittsprobleme.
+
+Für die Konstruktion werden die Zustände, Übergänge definiert, dadurch können die IO-Beziehungen abgeleitet werden und das Modell validiert werden. Ziele für die Zutände sind z.b. die Erreichbarkeit, Vollständigkeit und die Notwendigkeit zu testen. Ziele für die Übergänge sind z.b. die Durchführbarkeit, Vollständigkeit und die Notwendigkeit zu testen.
+
+\paragraph{Markov-Modelle / -Ketten} sind endliche Automaten mit Wahrscheinlichkeiten an jedem Zustandsübergang. Die Addition der Wahrscheinlichkeiten kann unter 100\% fallen wenn nicht alle Möglichkeiten bekannt sind.
+
+Die Wahrscheinlichkeit eines konkreten Übergangs ist das Produkt aller Wahrscheinlichkeiten auf dem Pfad vom Start bis zum Ausgangszustand, multipliziert mit der Wahrscheinlichkeit dieses konkreten Übergangs => diese Tatsache knn bei Schleifen Probleme machen.
+
+\paragraph{UMM - Unified Markov Model} ist ein kohärenter Satz von hierarchisch geschachtelte Markov-Modellen. Kann in der Praxis sehr gut angewendet werden. Es können alle Arten von statistischen Aussagen getätigt werden.
+
+\subsubsection{Kontrollfluss}
+Das Testziel ist die ausführung aller Pfade im Programm zu testen. Dazu wird ein CFG (Control Flow Graph) erzeugt. Die Knoten sind ausführbare Anweisungen, Startknoten sind erste, Endknoten sind die letzten Anweisungen und die Kanten sind mögliche Verarbeitungssequenzen.
+
+Bei Schleifen können die Anzahl der Ausführung getestet werden (0, 1, 2 Durchläufe und evtl. die Grenzfälle - bei einer Vorhersehbare durchläufe). Es wird empfohlen die Pfade von hinten her aufzubauen. Dies unterstützt die Identifikation von unbenötigtem Code.
+
+\subsubsection{Datenfluss}
+Bei einem \textbf{DDG - Data Dependency Graph} sind die Knoten die Zustände derVariblen und die Kanten sind Operationen des Programmes. Er beschreibt den Zustand von der Variable X in jedem Zeitpunkt.
+
+Die Richtung der Pfeile bestimmt die Art zu Zugriffes (Hin schreiben, Weg lesen). Die Zugriffsfolgen können nun bestimmte Probleme vermuten lassen.
+Beispiel Schreiben und sofort nochmal Schreiben -> könnte ein Überschreiben bedeuten oder ein mehrfaches Schreiben könnte eine ineffizienz bedeuten.
+Ein weiteres Beispiel ist das lesen von nicht initialisierten Variablen (Lesen ohne vorher zu schreiben.
+
+Schleifen sollten vorsichtshalber zweimal durchlaufen werden um sicherzugehen.
+
+\section{Testverfahren}
+\img{0.9}{document/graphics/testverfahren.png}{Testverfahren}{tv}
+
+\paragraph{Unit-Test} sind White-Box Tests durch den Entwickler. Informelles Testen um Fehler zu lokalisieren.
+
+\paragraph{Komponenten-Test} können sowohl als White- als auch als Black-Box Tests durchgeführt werden.
+
+\paragraph{Integrationstest} Black Box in Bezug auf die zu integrierenden Komponenten, White Box in Bezug auf die Integrationsschicht, durch Entwickler.
+
+\paragraph{Systemtest} Black Box durch professionelle Tester.
+
+\paragraph{Regressionstest} Black Box durch Entwickler
+
+\paragraph{Abnahmetest} Black Box durch Kunden
+
+\paragraph{Betatest} Black Box durch Endanwender
+
+\subsection{Testwerkzeuge}
+Unit-Tests gibt es für viele Sprachen. Jedoch bleibt die Frage: Wie teste ich den Testcode? Der TestCode testet sich mit dem Programmcode gegenseitig.
+
+\subsubsection{Emulatoren udn Simulatoren}
+\paragraph{Simulator}Modell (Vereinfachung) eines Systems zum Zeck der Analyse dieses Systems 
+
+\paragraph{Emulator (Computertechnik)}Nachbildung wesentlicher Verhaltensaspekte eines Systems durch ein anderes. Anmerkung: Das emulierte wie das emulierende System können aus Hardware und/oder Software bestehen
+
+
+
+
+
 
 
