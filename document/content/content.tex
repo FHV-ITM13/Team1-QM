@@ -673,11 +673,120 @@ Schleifen sollten vorsichtshalber zweimal durchlaufen werden um sicherzugehen.
 \subsection{Testwerkzeuge}
 Unit-Tests gibt es für viele Sprachen. Jedoch bleibt die Frage: Wie teste ich den Testcode? Der TestCode testet sich mit dem Programmcode gegenseitig.
 
-\subsubsection{Emulatoren udn Simulatoren}
-\paragraph{Simulator}Modell (Vereinfachung) eines Systems zum Zeck der Analyse dieses Systems 
+\subsubsection{Emulatoren und Simulatoren}
 
-\paragraph{Emulator (Computertechnik)}Nachbildung wesentlicher Verhaltensaspekte eines Systems durch ein anderes. Anmerkung: Das emulierte wie das emulierende System können aus Hardware und/oder Software bestehen
+\paragraph{Simulator}
+Modell (Vereinfachung) eines Systems zum Zeck der Analyse dieses Systems 
 
+\paragraph{Emulator (Computertechnik)}
+Nachbildung wesentlicher Verhaltensaspekte eines Systems durch ein anderes. Anmerkung: Das emulierte wie das emulierende System können aus Hardware und/oder Software bestehen
+
+\chapter{Verifikation und Validierung}
+
+\paragraph{Verifikation von Software}
+Überprüfung ob Software ihrer Spezifikation entspricht bzw. den Spezifikationen entsprechend umgesetzt wurde.
+
+\paragraph{Validierung von Software}
+Überprüfung ob die Software den Anforderungen und Erwwartungen ihrer Benutzer entspricht - sind die Benutzeranforderungen also richtig und  vollständig erfasst und umgesetzt worden.
+
+Im Normalfall traegt die Verifikation zur Validierung bei, doch sind zusaetzliche Maßnahmen für die Validierung notwendig.
+
+\paragraph{Fehlerquellen}
+Ein Anwender beobachtet vermeintliches Fehlverhalten. Missverständnisse und tatsächliche Fehlverhalten müssen voneinander unterschieden werden, was bedeutet, dass der Fehler in der Spezifikation oder Umsetzung liegt.
+
+\section{Planung der Qualitaetsprüfung}
+Prüfverfahren können statich oder dynamisch stattfinden und die Ziele sind Verifikation Entdeckung von Fehlern in der Software) und Validierung (Aufbau von Vertrauen in die Anwendbarkeit der Software).
+
+\img{0.9}{document/graphics/qualitaetscheck.PNG}{qualitaetscheck}{qualitycheck}
+
+\section{Verifikationstechniken}
+Verifikationstechniken umfasst Softwareinstpektion, automatisierte statische Analyse, formale Methoden und Softwaretests.
+
+\subsection{Softwareinstpektion}
+Fehlerlokalisierung auf Basis von Test ist eine Art von Inspektion und weitere Prüfziele wie z.B. Normen und Standards, Portiertbarkeit, Wartbarkeit, Eignung von Algorithmen und Programmierstiel könne verfolgt werden.
+
+\paragraph{Voraussetzungen}
+Voraussetzungen für die Inspektion sind eine genaue Spezifikation, Vertrautheit der Teammitglieder mit einzuhaltenden Standards und Normen sowie die Verfügbarkeit einer aktuellen zumindestens kompilierbaren Codeversionen.
+
+Bei der Softwareinspektion gibt es mehrere Rollen für die Teilnehmer. Diese Umfassen Autor/Eigentümer, Inspektor, Vorleser, Protokollant, Vorsitzender/Moderator und Chefmoderator.
+
+\img{0.9}{document/graphics/softwareinspektion.PNG}{softwareinspektion}{softwareinspektion}
+
+\subsection{Verifikationstechniken}
+\paragraph{Automatisierte statische Analyse}
+Softwareinspektion ist eine Form der statischen Analyse und wird oft mit Hilfe von Checklisten und Heuristiken verwendet. 
+
+Statische Analysewerkzeuge erkennen Anomalien im Code (nicht jede Anomalie ist ein Fehler) und diese sollten Gegenstand eines Reviews sein. Solche Anomalien können sein:
+
+\begin{itemize}
+\item nicht initialisierte Variablen
+\item nicht verwendete Variablen
+\item verletzte Indexgrenzen
+\item nicht deklarierte Variablen
+\item unerreichbarer Code
+\item falsch zugeordnete Parametertypen und/oder -anzahl
+\item nicht verwendete Funktionsergebnisse 
+\item ...
+\end{itemize}
+
+Die Phasen der statischen Analyse umspannen die Analyse der Steuerung, unerreichbaren Code un die Pfadanalyse. Außerdem gibt es eine Analyse der Datenverwendeung (Lesen von nicht initialiserten Variabeln, redundante Tests), der Schnitstellen (z.B. Parameteranzahl in Deklaration und Aufruf) und des Informationsflusses (z.B. unbenutzte Eingaben).
+
+\paragraph{Formale Methoden}
+Die Vision ist, dass mit Hilfe formaler Methoden die ultimative statische Verfikation möglich ist. Voraussetzungen dafür sind eine vollständige formale Spezifikation. Dies würde die Möglichkeit bieten automatisierte Überprüfungen der Spezifikationen auf Inkonsistenzen zu machen und die Verifikation des Codes gegen Spezifikation ermöglichen.
+
+Ein großes Problem dabei ist, dass die Spezifikation nicht die Benutzeranforderungen sind. Ein Weiteres ist die Komplexität und der Umfang der Beweise und unzutreffende Nutzungsmuster als Voraussetzung des Beweises (was den Beweis ungültig macht). 
+
+\subsection{Validierungstechniken}
+Qualitaetssicherung der Anforderungen durch Anforderungsinterviews mit einer Vielzahl unterschiedlicher Beteiltigter bzw. Betroffener sowie Reviews der Anforderungen durch andere Personen die nicht die Anfoderungen erhoben haben (Experten des Anwedungsgebiets, Experten für Systemeigenschaften, ...).
+
+\paragraph{Entwicklungsphase}
+In der Entwicklungsphase sollten Design-Reviews für Interkations-Szenarios mit Beteiliten / Betroffenen gemacht werden (Powerpoint.
+\paragraph{Validierungsphase}
+In der Validierungsphase sollten Tests durch echte Anwender von möglichst allen Anwendergruppen gemacht werden und eine einfache Feedbackmöglichkeit bereitgestellt werden. 
+\paragraph{Einsatzphase}
+Marktbeobachtungen, Benutzergruppen, Produktwiki
+
+\paragraph{Validierung der Zuverlässigkeit}
+Gibt Auskunft darüber wie groß ist der Anteil der korrekten Ergebnisse ist.
+Dabei gibt es verschiedene Probleme bei der statistischen Zuverlässigkeitsmessung:
+
+\begin{itemize}
+\item Unsicherheit über Betriebsprofil
+\item Kosten der Testdatenerstellung
+\item Statistische Unsicherheiten
+\end{itemize}
+
+\paragraph{Validierung der Betriebssicherheit}
+Ist die Eigenschaft eines Systems, bei richtiger wie falscher Benutzerung und auch beim Auftreten externer Fehler kein Verhalten zu zeigen, das Benutzer oder Dritte schädigt oder gefährdet.
+Zuverlässigkeit sich zwar messen (ROCOF) aber nicht Betriebssicherheit. 
+
+Die formale Verifikation des gesamten Systems erforder eine vollständige Liste aller, auch externer Fehler --> ist also unmöglich und wäre auch sehr teuer und fehleranfällig. Die Vorgehensweise ist eine formale Definition einer Reihe von Bedrohungen in Form vom Prädikaten. 
+
+\paragraph{Bedeutung von Betriebssicherheit}
+Unfälle sind zu selten um sie mit statistischen Verfahren in den Griff zu bekommen und sind sehr oft Verletzungen von "darf-nicht" Anforderungen.
+
+\begin{itemize}
+\item Einrichtung eines Systems zur Überwachung von Protokollierung von Unfällen (von der Gefahrenanalyse über die Testphase bis zur Systemvalidierung)
+\item Zuweisung von persönlicher Verantwortung für Betriebssicherheit an geeignete Personen
+\item Betriebssicherheit-Reviews während des gesamten Prozesses
+\item Formale Zertifizierung kritischer Komponenten
+\end{itemize}
+
+\paragraph{Validierung der Systemsicherheit}
+Das Internet ist eine tolle Infrastruktur um von einem beliebigen Rechner auf ein beliebiges System auf irgendeinem Rechner irgendwo auf der Erde zuzugreifen / angreifen.
+
+Es ist im allgemeinen vollkommen unmöglich nachzuweisen, dass ein System unter keinen Umständen etwas tut, was es nicht tun darf.
+
+Überprüfungsansätze
+
+\begin{itemize}
+\item Werkzeuge für erfahrungsbasierte Validierung
+\item Checklisten
+\item angeheuerte, erfahrene Hacker
+\item Formale Verifikation
+\end{itemize}
+
+Keine Kette ist stärker als ihr schwächstes Glied!
 
 
 
