@@ -702,7 +702,7 @@ Prüfverfahren können statich oder dynamisch stattfinden und die Ziele sind Ver
 \section{Verifikationstechniken}
 Verifikationstechniken umfasst Softwareinstpektion, automatisierte statische Analyse, formale Methoden und Softwaretests.
 
-\subsection{Softwareinspektion}
+\subsection{Softwareinstpektion}
 Fehlerlokalisierung auf Basis von Test ist eine Art von Inspektion und weitere Prüfziele wie z.B. Normen und Standards, Portiertbarkeit, Wartbarkeit, Eignung von Algorithmen und Programmierstiel könne verfolgt werden.
 
 \paragraph{Voraussetzungen}
